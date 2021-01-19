@@ -12,3 +12,5 @@ gem "shotgun", "~> 0.9.2"
 gem "pry", "~> 0.13.1"
 gem "activerecord", "~> 5.2"
 gem "sinatra-activerecord", "~> 2.0"
+
+gem "faker", "~> 2.15"
