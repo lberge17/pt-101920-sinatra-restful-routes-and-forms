@@ -1,0 +1,5 @@
+<ul>
+    <% @notes.each do |n| %>
+        <li><a href="/notes/<%= n.id %>"><%= n.title %></a></li>
+    <% end %>
+</ul>

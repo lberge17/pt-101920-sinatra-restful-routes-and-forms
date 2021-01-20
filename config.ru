@@ -1,4 +1,4 @@
 require "./config/environment"
 
-# use NotesController
+use NotesController
 run ApplicationController
