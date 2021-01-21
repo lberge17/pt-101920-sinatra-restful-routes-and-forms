@@ -9,3 +9,5 @@ configure :development do
 end
 
 require_all 'app'
+
+# ActiveRecord::Base.logger = Logger.new(STDOUT)
