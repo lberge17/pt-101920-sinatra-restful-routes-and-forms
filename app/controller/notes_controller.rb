@@ -1,41 +1,43 @@
 class NotesController < ApplicationController
-    # index route all notes
+    # index route all notes - READ
     get '/notes' do
         @notes = Note.all
         erb :"notes/index"
     end
 
-    # render form to create note
+    # render form to create note - CREATE
     get '/notes/new' do
         erb :"notes/new"
     end
 
-    # show route singular note
+    # show route singular note - READ
     get '/notes/:id' do
         @note = Note.find_by(id: params[:id])
         erb :"notes/show"
     end
 
-    # create note
+    # create note - CREATE
     post '/notes' do
-        note = Note.create(title: params["title"], content: params["content"])
+        binding.pry
+        note = Note.create(params["note"])
         redirect "/notes/#{note.id}"
     end
 
-    # render form to edit existing note
+    # render form to edit existing note - UPDATEs
     get '/notes/:id/edit' do
         @note = Note.find_by(id: params[:id])
         erb :"notes/edit"
     end
 
-    # update note
+    # update note - UPDATE
     patch '/notes/:id' do
+        binding.pry
         note = Note.find_by(id: params[:id])
-        note.update(title: params["title"], content: params["content"])
+        note.update(params["note"])
         redirect "/notes/#{note.id}"
     end
 
-    # delete existing note
+    # delete existing note - DELETE
     delete '/notes/:id' do
         note = Note.find_by(id: params[:id])
         note.delete
