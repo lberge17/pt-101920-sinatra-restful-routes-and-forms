@@ -1,7 +1,8 @@
 class NotesController < ApplicationController
     # index route all notes - READ
     get '/notes' do
-        @notes = Note.all
+        @user = User.find(session["user_id"])
+        @notes = @user.notes
         erb :"notes/index"
     end
 
@@ -18,7 +19,6 @@ class NotesController < ApplicationController
 
     # create note - CREATE
     post '/notes' do
-        binding.pry
         note = Note.create(params["note"])
         redirect "/notes/#{note.id}"
     end
@@ -31,7 +31,6 @@ class NotesController < ApplicationController
 
     # update note - UPDATE
     patch '/notes/:id' do
-        binding.pry
         note = Note.find_by(id: params[:id])
         note.update(params["note"])
         redirect "/notes/#{note.id}"

@@ -14,3 +14,7 @@ gem "activerecord", "~> 5.2"
 gem "sinatra-activerecord", "~> 2.0"
 
 gem "faker", "~> 2.15"
+
+gem "bcrypt", "~> 3.1"
+
+gem "dotenv", "~> 2.7"
