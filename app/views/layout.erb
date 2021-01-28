@@ -48,6 +48,12 @@
     <div class="container">
         <h1>Notes App</h1>
         <%= yield %>
+        <% if logged_in? %>
+            <form method="POST" action="/logout">
+                <input type="hidden" value="DELETE" name="_method">
+                <input type="submit" value="Logout">
+            </form>
+        <% end %>
     </div>
 </body>
 </html>
